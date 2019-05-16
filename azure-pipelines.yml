@@ -51,7 +51,7 @@ jobs:
         testRunTitle: '$(System.JobAttempt)-Integration $(_configuration) $(_completionName)' 
       condition: always()
 
-    - script: dir '$(Build.SourcesDirectory)\artifacts\log\$(_configuration)'
+    - powershell: gci '$(Build.SourcesDirectory)\artifacts\log\$(_configuration)'
       displayName: Show artifacts log directory contents
       condition: always()
 
