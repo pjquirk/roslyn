@@ -51,6 +51,10 @@ jobs:
         testRunTitle: '$(System.JobAttempt)-Integration $(_configuration) $(_completionName)' 
       condition: always()
 
+    - script: ls '$(Build.SourcesDirectory)\artifacts\log\$(_configuration)'
+      displayName: Show artifacts log directory contents
+      condition: always()
+
     - task: PublishBuildArtifacts@1
       displayName: Publish Logs
       inputs:
